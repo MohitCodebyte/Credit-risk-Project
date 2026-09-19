@@ -1,0 +1,2176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Credit Risk Analytics System - AI-powered borrower credit risk assessment"
+    >
+
+    <title>CreditRisk AI | Credit Risk Analytics</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Main stylesheet -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+<!-- =========================================================
+     PAGE LOADER
+========================================================= -->
+
+<div class="page-loader" id="pageLoader">
+
+    <div class="loader-orbit">
+
+        <div class="loader-core">
+            <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <div class="loader-ring ring-one"></div>
+        <div class="loader-ring ring-two"></div>
+
+    </div>
+
+    <p>Initializing Risk Intelligence...</p>
+
+</div>
+
+
+<!-- =========================================================
+     BACKGROUND DECORATIONS
+========================================================= -->
+
+<div class="background-system">
+
+    <div class="gradient-orb orb-one"></div>
+    <div class="gradient-orb orb-two"></div>
+    <div class="gradient-orb orb-three"></div>
+
+    <div class="grid-background"></div>
+
+    <div class="floating-particle particle-one"></div>
+    <div class="floating-particle particle-two"></div>
+    <div class="floating-particle particle-three"></div>
+    <div class="floating-particle particle-four"></div>
+
+</div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar-wrapper">
+
+    <nav class="navbar container">
+
+        <!-- Logo -->
+
+        <a href="/" class="brand">
+
+            <div class="brand-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span class="brand-pulse"></span>
+
+            </div>
+
+            <div class="brand-text">
+
+                <span class="brand-name">
+                    CreditRisk<span>AI</span>
+                </span>
+
+                <small>
+                    RISK INTELLIGENCE
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <!-- Desktop Navigation -->
+
+        <div class="nav-links">
+
+            <a href="/" class="nav-link active">
+                Home
+            </a>
+
+            <a href="/dashboard" class="nav-link">
+                Dashboard
+            </a>
+
+            <a href="/about" class="nav-link">
+                About
+            </a>
+
+            <a href="/methodology" class="nav-link">
+                Methodology
+            </a>
+
+        </div>
+
+
+        <!-- Navbar CTA -->
+
+        <a href="{{ url_for('assess_risk') }}" class="nav-cta">
+
+            <span>Assess Risk</span>
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <!-- Mobile Menu -->
+
+        <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            type="button"
+            aria-label="Open navigation menu"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </nav>
+
+
+    <!-- Mobile navigation -->
+
+    <div class="mobile-nav" id="mobileNav">
+
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/about">About</a>
+        <a href="/methodology">Methodology</a>
+
+        <a href="{{ url_for('assess_risk') }}" class="mobile-nav-cta">
+            Assess Credit Risk
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
+
+<section class="hero-section">
+
+    <div class="container hero-grid">
+
+
+        <!-- Hero Content -->
+
+        <div class="hero-content">
+
+
+            <!-- Status Badge -->
+
+            <div class="status-badge reveal">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    ML-POWERED CREDIT INTELLIGENCE
+                </span>
+
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+            </div>
+
+
+            <!-- Main Heading -->
+
+            <h1 class="hero-title reveal delay-one">
+
+                Smarter decisions.
+
+                <span class="gradient-text">
+                    Lower credit risk.
+                </span>
+
+            </h1>
+
+
+            <!-- Description -->
+
+            <p class="hero-description reveal delay-two">
+
+                Assess borrower credit risk using a machine-learning
+                powered analytics system that transforms financial
+                information into an interpretable risk assessment.
+
+            </p>
+
+
+            <!-- Hero Actions -->
+
+            <div class="hero-actions reveal delay-three">
+
+                <a href="{{ url_for('assess_risk') }}" class="primary-btn">
+
+                    <span class="btn-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </span>
+
+                    <span>
+                        Start Risk Assessment
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right btn-arrow"></i>
+
+                </a>
+
+
+                <a href="#how-it-works" class="secondary-btn">
+
+                    <span class="play-icon">
+
+                        <i class="fa-solid fa-play"></i>
+
+                    </span>
+
+                    See how it works
+
+                </a>
+
+            </div>
+
+
+            <!-- Trust indicators -->
+
+            <div class="hero-trust reveal delay-four">
+
+                <div class="trust-item">
+
+                    <div class="trust-icon">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+
+                    <div>
+                        <strong>ML Powered</strong>
+                        <span>Predictive analytics</span>
+                    </div>
+
+                </div>
+
+
+                <div class="trust-divider"></div>
+
+
+                <div class="trust-item">
+
+                    <div class="trust-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <div>
+                        <strong>Risk Scoring</strong>
+                        <span>0 – 100 scale</span>
+                    </div>
+
+                </div>
+
+
+                <div class="trust-divider"></div>
+
+
+                <div class="trust-item">
+
+                    <div class="trust-icon">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+
+                    <div>
+                        <strong>Explainable</strong>
+                        <span>SHAP insights</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             3D RISK VISUALIZATION
+        ====================================================== -->
+
+        <div class="hero-visual reveal delay-two">
+
+            <div class="visual-scene" id="visualScene">
+
+
+                <!-- Glow -->
+
+                <div class="visual-glow"></div>
+
+
+                <!-- Floating cards -->
+
+                <div class="floating-card floating-card-top">
+
+                    <div class="mini-card-icon">
+                        <i class="fa-solid fa-arrow-trend-down"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Default Probability</span>
+
+                        <strong>
+                            <span class="counter" data-target="3.06">
+                                0
+                            </span>%
+                        </strong>
+
+                    </div>
+
+                    <span class="mini-status">
+                        Low
+                    </span>
+
+                </div>
+
+
+                <div class="floating-card floating-card-bottom">
+
+                    <div class="mini-card-icon green-icon">
+                        <i class="fa-solid fa-shield-check"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Model Status</span>
+
+                        <strong>
+                            Operational
+                        </strong>
+
+                    </div>
+
+                    <span class="live-dot"></span>
+
+                </div>
+
+
+                <!-- Main 3D shield -->
+
+                <div class="risk-orbit orbit-large"></div>
+
+                <div class="risk-orbit orbit-small"></div>
+
+
+                <div class="shield-platform">
+
+
+                    <div class="platform-shadow"></div>
+
+
+                    <div class="risk-shield">
+
+                        <div class="shield-back-glow"></div>
+
+                        <div class="shield-face">
+
+                            <div class="shield-top-line"></div>
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <div class="shield-inner-ring"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Score -->
+
+                    <div class="score-card">
+
+                        <span class="score-label">
+                            RISK SCORE
+                        </span>
+
+                        <div class="score-value">
+
+                            <span
+                                class="counter"
+                                data-target="3.06"
+                            >
+                                0
+                            </span>
+
+                        </div>
+
+                        <span class="score-category">
+                            Low Risk
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Floating data points -->
+
+                <div class="data-node node-one">
+
+                    <span class="node-dot"></span>
+
+                    <span>
+                        Credit Score
+                    </span>
+
+                </div>
+
+
+                <div class="data-node node-two">
+
+                    <span class="node-dot"></span>
+
+                    <span>
+                        Debt Ratio
+                    </span>
+
+                </div>
+
+
+                <div class="data-node node-three">
+
+                    <span class="node-dot"></span>
+
+                    <span>
+                        Loan Exposure
+                    </span>
+
+                </div>
+
+
+                <!-- Connection lines -->
+
+                <div class="connection-line line-one"></div>
+                <div class="connection-line line-two"></div>
+                <div class="connection-line line-three"></div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Scroll indicator -->
+
+    <div class="scroll-indicator">
+
+        <span>SCROLL TO EXPLORE</span>
+
+        <div class="scroll-line"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     METRICS SECTION
+========================================================= -->
+
+<section class="metrics-section">
+
+    <div class="container">
+
+        <div class="metrics-card">
+
+
+            <div class="metric-item">
+
+                <span class="metric-icon">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+
+                        <span
+                            class="counter"
+                            data-target="10000"
+                            data-format="comma"
+                        >
+                            0
+                        </span>+
+
+                    </strong>
+
+                    <span>
+                        Synthetic borrowers
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="metric-item">
+
+                <span class="metric-icon">
+                    <i class="fa-solid fa-building-columns"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+
+                        <span
+                            class="counter"
+                            data-target="20"
+                        >
+                            0
+                        </span>
+
+                    </strong>
+
+                    <span>
+                        Bank profiles
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="metric-item">
+
+                <span class="metric-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        ML
+                    </strong>
+
+                    <span>
+                        Predictive engine
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="metric-item">
+
+                <span class="metric-icon">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        SHAP
+                    </strong>
+
+                    <span>
+                        Model explainability
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HOW IT WORKS
+========================================================= -->
+
+<section
+    class="process-section"
+    id="how-it-works"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading centered reveal">
+
+            <span class="eyebrow">
+                <i class="fa-solid fa-circle-nodes"></i>
+                THE PROCESS
+            </span>
+
+            <h2>
+                From borrower data to
+                <span class="gradient-text">
+                    risk intelligence.
+                </span>
+            </h2>
+
+            <p>
+                A structured machine-learning workflow transforms
+                borrower information into an interpretable credit
+                risk assessment.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <!-- Step 1 -->
+
+            <article class="process-card reveal">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <div class="process-icon">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+
+                <h3>
+                    Borrower Profile
+                </h3>
+
+                <p>
+                    Enter financial, employment, credit history,
+                    loan and repayment information.
+                </p>
+
+                <div class="process-line"></div>
+
+            </article>
+
+
+            <!-- Step 2 -->
+
+            <article class="process-card reveal delay-one">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <div class="process-icon">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+
+                <h3>
+                    Feature Intelligence
+                </h3>
+
+                <p>
+                    The application prepares derived financial
+                    indicators required by the trained model.
+                </p>
+
+                <div class="process-line"></div>
+
+            </article>
+
+
+            <!-- Step 3 -->
+
+            <article class="process-card reveal delay-two">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <div class="process-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <h3>
+                    ML Prediction
+                </h3>
+
+                <p>
+                    The trained classification pipeline estimates
+                    the borrower's default probability.
+                </p>
+
+                <div class="process-line"></div>
+
+            </article>
+
+
+            <!-- Step 4 -->
+
+            <article class="process-card reveal delay-three">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <div class="process-icon">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+
+                <h3>
+                    Risk Assessment
+                </h3>
+
+                <p>
+                    Probability is translated into a 0–100 risk
+                    score and interpretable risk category.
+                </p>
+
+                <div class="process-line"></div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ASSESSMENT SECTION
+========================================================= -->
+
+<section
+    class="assessment-section"
+    id="assessment"
+>
+
+    <div class="container">
+
+
+        <!-- Section heading -->
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">
+                <i class="fa-solid fa-shield-halved"></i>
+                CREDIT ASSESSMENT
+            </span>
+
+            <h2>
+                Evaluate borrower
+                <span class="gradient-text">
+                    credit risk.
+                </span>
+            </h2>
+
+            <p>
+                Provide the borrower's information below. The
+                trained ML model will calculate the risk assessment.
+            </p>
+
+        </div>
+
+
+        <!-- Error -->
+
+        {% if error %}
+
+        <div class="error-alert">
+
+            <div class="error-icon">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+
+            <div>
+
+                <strong>
+                    Assessment Error
+                </strong>
+
+                <p>
+                    {{ error }}
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+
+        <!-- Assessment Form -->
+
+        <form
+            action="/predict"
+            method="POST"
+            class="assessment-form"
+            id="riskForm"
+            novalidate
+        >
+
+
+            <!-- =================================================
+                 PERSONAL INFORMATION
+            ================================================== -->
+
+            <div class="form-card reveal">
+
+                <div class="form-card-header">
+
+                    <div class="form-section-icon">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            SECTION 01
+                        </span>
+
+                        <h3>
+                            Borrower Profile
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- Age -->
+
+                    <div class="field">
+
+                        <label for="age">
+                            Age
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-cake-candles"></i>
+
+                            <input
+                                type="number"
+                                id="age"
+                                name="age"
+                                min="18"
+                                max="100"
+                                placeholder="e.g. 32"
+                                required
+                            >
+
+                            <span class="input-suffix">
+                                years
+                            </span>
+
+                        </div>
+
+                        <small>
+                            Borrower's current age
+                        </small>
+
+                    </div>
+
+
+                    <!-- Employment Type -->
+
+                    <div class="field">
+
+                        <label for="employment_type">
+                            Employment Type
+                            <span>*</span>
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <i class="fa-solid fa-briefcase"></i>
+
+                            <select
+                                id="employment_type"
+                                name="employment_type"
+                                required
+                            >
+
+                                <option value="" selected disabled>
+                                    Select employment type
+                                </option>
+
+                                <option value="Salaried">
+                                    Salaried
+                                </option>
+
+                                <option value="Self-Employed">
+                                    Self-Employed
+                                </option>
+
+                                <option value="Business">
+                                    Business
+                                </option>
+
+                                <option value="Professional">
+                                    Professional
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Employment Length -->
+
+                    <div class="field">
+
+                        <label for="employment_length_years">
+                            Employment Length
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-clock"></i>
+
+                            <input
+                                type="number"
+                                id="employment_length_years"
+                                name="employment_length_years"
+                                min="0"
+                                max="60"
+                                step="0.1"
+                                placeholder="e.g. 6"
+                                required
+                            >
+
+                            <span class="input-suffix">
+                                years
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Dependents -->
+
+                    <div class="field">
+
+                        <label for="dependents">
+                            Dependents
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-people-group"></i>
+
+                            <input
+                                type="number"
+                                id="dependents"
+                                name="dependents"
+                                min="0"
+                                max="20"
+                                placeholder="e.g. 2"
+                                required
+                            >
+
+                            <span class="input-suffix">
+                                persons
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Home Ownership -->
+
+                    <div class="field">
+
+                        <label for="home_ownership">
+                            Home Ownership
+                            <span>*</span>
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <i class="fa-solid fa-house"></i>
+
+                            <select
+                                id="home_ownership"
+                                name="home_ownership"
+                                required
+                            >
+
+                                <option value="" selected disabled>
+                                    Select ownership
+                                </option>
+
+                                <option value="Own">
+                                    Own
+                                </option>
+
+                                <option value="Mortgage">
+                                    Mortgage
+                                </option>
+
+                                <option value="Rent">
+                                    Rent
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Bank -->
+
+                    <div class="field">
+
+                        <label for="bank">
+                            Bank
+                            <span>*</span>
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <i class="fa-solid fa-building-columns"></i>
+
+                            <select
+                                id="bank"
+                                name="bank"
+                                required
+                            >
+
+                                <option value="" selected disabled>
+                                    Select bank
+                                </option>
+
+                                <option value="BANK OF BARODA">
+                                    Bank of Baroda
+                                </option>
+
+                                <option value="BANK OF INDIA">
+                                    Bank of India
+                                </option>
+
+                                <option value="BANK OF MAHARASHTRA">
+                                    Bank of Maharashtra
+                                </option>
+
+                                <option value="CANARA BANK">
+                                    Canara Bank
+                                </option>
+
+                                <option value="CENTRAL BANK OF INDIA">
+                                    Central Bank of India
+                                </option>
+
+                                <option value="INDIAN BANK">
+                                    Indian Bank
+                                </option>
+
+                                <option value="INDIAN OVERSEAS BANK">
+                                    Indian Overseas Bank
+                                </option>
+
+                                <option value="PUNJAB AND SIND BANK">
+                                    Punjab & Sind Bank
+                                </option>
+
+                                <option value="PUNJAB NATIONAL BANK">
+                                    Punjab National Bank
+                                </option>
+
+                                <option value="STATE BANK OF INDIA">
+                                    State Bank of India
+                                </option>
+
+                                <option value="UCO BANK">
+                                    UCO Bank
+                                </option>
+
+                                <option value="UNION BANK OF INDIA">
+                                    Union Bank of India
+                                </option>
+
+                                <option value="AXIS BANK LIMITED">
+                                    Axis Bank
+                                </option>
+
+                                <option value="BANDHAN BANK LIMITED">
+                                    Bandhan Bank
+                                </option>
+
+                                <option value="CITY UNION BANK LIMITED">
+                                    City Union Bank
+                                </option>
+
+                                <option value="DCB BANK LIMITED">
+                                    DCB Bank
+                                </option>
+
+                                <option value="FEDERAL BANK LTD">
+                                    Federal Bank
+                                </option>
+
+                                <option value="HDFC BANK LTD.">
+                                    HDFC Bank
+                                </option>
+
+                                <option value="ICICI BANK LIMITED">
+                                    ICICI Bank
+                                </option>
+
+                                <option value="NAINITAL BANK LTD">
+                                    Nainital Bank
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FINANCIAL INFORMATION
+            ================================================== -->
+
+            <div class="form-card reveal">
+
+                <div class="form-card-header">
+
+                    <div class="form-section-icon">
+
+                        <i class="fa-solid fa-wallet"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            SECTION 02
+                        </span>
+
+                        <h3>
+                            Financial Profile
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- Annual Income -->
+
+                    <div class="field">
+
+                        <label for="annual_income">
+                            Annual Income
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="currency-symbol">
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="annual_income"
+                                name="annual_income"
+                                min="0"
+                                step="1000"
+                                placeholder="e.g. 720000"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Monthly Income -->
+
+                    <div class="field">
+
+                        <label for="monthly_income">
+                            Monthly Income
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="currency-symbol">
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="monthly_income"
+                                name="monthly_income"
+                                min="0"
+                                step="100"
+                                placeholder="e.g. 60000"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Existing Debt -->
+
+                    <div class="field">
+
+                        <label for="existing_debt">
+                            Existing Debt
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="currency-symbol">
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="existing_debt"
+                                name="existing_debt"
+                                min="0"
+                                step="1000"
+                                placeholder="e.g. 120000"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Existing Loans -->
+
+                    <div class="field">
+
+                        <label for="existing_loans">
+                            Existing Loans
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-file-invoice"></i>
+
+                            <input
+                                type="number"
+                                id="existing_loans"
+                                name="existing_loans"
+                                min="0"
+                                max="50"
+                                placeholder="e.g. 2"
+                                required
+                            >
+
+                            <span class="input-suffix">
+                                loans
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Loan Amount -->
+
+                    <div class="field">
+
+                        <label for="loan_amount">
+                            Requested Loan Amount
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="currency-symbol">
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="loan_amount"
+                                name="loan_amount"
+                                min="0"
+                                step="1000"
+                                placeholder="e.g. 450000"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Loan Term -->
+
+                    <div class="field">
+
+                        <label for="loan_term_months">
+                            Loan Term
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-calendar-days"></i>
+
+                            <input
+                                type="number"
+                                id="loan_term_months"
+                                name="loan_term_months"
+                                min="1"
+                                max="480"
+                                placeholder="e.g. 60"
+                                required
+                            >
+
+                            <span class="input-suffix">
+                                months
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Interest Rate -->
+
+                    <div class="field">
+
+                        <label for="interest_rate">
+                            Interest Rate
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-percent"></i>
+
+                            <input
+                                type="number"
+                                id="interest_rate"
+                                name="interest_rate"
+                                min="0"
+                                max="50"
+                                step="0.01"
+                                placeholder="e.g. 11.5"
+                                required
+                            >
+
+                            <span class="input-suffix">
+                                % APR
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Monthly EMI -->
+
+                    <div class="field">
+
+                        <label for="monthly_emi">
+                            Monthly EMI
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="currency-symbol">
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="monthly_emi"
+                                name="monthly_emi"
+                                min="0"
+                                step="100"
+                                placeholder="e.g. 10000"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DTI -->
+
+                    <div class="field">
+
+                        <label for="debt_to_income_ratio">
+                            Debt-to-Income Ratio
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-scale-balanced"></i>
+
+                            <input
+                                type="number"
+                                id="debt_to_income_ratio"
+                                name="debt_to_income_ratio"
+                                min="0"
+                                max="10"
+                                step="0.001"
+                                placeholder="e.g. 0.20"
+                                required
+                            >
+
+                        </div>
+
+                        <small>
+                            Enter ratio as decimal
+                        </small>
+
+                    </div>
+
+
+                    <!-- LTI -->
+
+                    <div class="field">
+
+                        <label for="loan_to_income_ratio">
+                            Loan-to-Income Ratio
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-chart-column"></i>
+
+                            <input
+                                type="number"
+                                id="loan_to_income_ratio"
+                                name="loan_to_income_ratio"
+                                min="0"
+                                max="20"
+                                step="0.001"
+                                placeholder="e.g. 0.625"
+                                required
+                            >
+
+                        </div>
+
+                        <small>
+                            Loan amount ÷ annual income
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CREDIT HISTORY
+            ================================================== -->
+
+            <div class="form-card reveal">
+
+                <div class="form-card-header">
+
+                    <div class="form-section-icon">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            SECTION 03
+                        </span>
+
+                        <h3>
+                            Credit History
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- Credit Score -->
+
+                    <div class="field field-highlight">
+
+                        <label for="credit_score">
+                            Credit Score
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-gauge-high"></i>
+
+                            <input
+                                type="number"
+                                id="credit_score"
+                                name="credit_score"
+                                min="300"
+                                max="900"
+                                placeholder="e.g. 680"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="score-hint">
+
+                            <span>
+                                300
+                            </span>
+
+                            <div class="score-gradient"></div>
+
+                            <span>
+                                900
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Credit History -->
+
+                    <div class="field">
+
+                        <label for="credit_history_years">
+                            Credit History
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+
+                            <input
+                                type="number"
+                                id="credit_history_years"
+                                name="credit_history_years"
+                                min="0"
+                                max="80"
+                                step="0.1"
+                                placeholder="e.g. 8"
+                                required
+                            >
+
+                            <span class="input-suffix">
+                                years
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Open Accounts -->
+
+                    <div class="field">
+
+                        <label for="open_credit_accounts">
+                            Open Credit Accounts
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-credit-card"></i>
+
+                            <input
+                                type="number"
+                                id="open_credit_accounts"
+                                name="open_credit_accounts"
+                                min="0"
+                                max="100"
+                                placeholder="e.g. 4"
+                                required
+                            >
+
+                            <span class="input-suffix">
+                                accounts
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Delinquencies -->
+
+                    <div class="field">
+
+                        <label for="previous_delinquencies">
+                            Previous Delinquencies
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+
+                            <input
+                                type="number"
+                                id="previous_delinquencies"
+                                name="previous_delinquencies"
+                                min="0"
+                                max="100"
+                                placeholder="e.g. 1"
+                                required
+                            >
+
+                            <span class="input-suffix">
+                                events
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Previous Defaults -->
+
+                    <div class="field">
+
+                        <label for="previous_defaults">
+                            Previous Defaults
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-circle-exclamation"></i>
+
+                            <input
+                                type="number"
+                                id="previous_defaults"
+                                name="previous_defaults"
+                                min="0"
+                                max="50"
+                                placeholder="e.g. 0"
+                                required
+                            >
+
+                            <span class="input-suffix">
+                                defaults
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Loan Purpose -->
+
+                    <div class="field">
+
+                        <label for="loan_purpose">
+                            Loan Purpose
+                            <span>*</span>
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <i class="fa-solid fa-bullseye"></i>
+
+                            <select
+                                id="loan_purpose"
+                                name="loan_purpose"
+                                required
+                            >
+
+                                <option value="" selected disabled>
+                                    Select purpose
+                                </option>
+
+                                <option value="Personal">
+                                    Personal
+                                </option>
+
+                                <option value="Home">
+                                    Home
+                                </option>
+
+                                <option value="Education">
+                                    Education
+                                </option>
+
+                                <option value="Business">
+                                    Business
+                                </option>
+
+                                <option value="Vehicle">
+                                    Vehicle
+                                </option>
+
+                                <option value="Medical">
+                                    Medical
+                                </option>
+
+                                <option value="Debt Consolidation">
+                                    Debt Consolidation
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FORM FOOTER
+            ================================================== -->
+
+            <div class="form-submit-area reveal">
+
+                <div class="privacy-note">
+
+                    <div class="privacy-icon">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Secure assessment
+                        </strong>
+
+                        <span>
+                            Your information is processed locally
+                            by the prediction application.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="submitBtn"
+                >
+
+                    <span class="submit-icon">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </span>
+
+                    <span class="submit-text">
+                        Calculate Credit Risk
+                    </span>
+
+                    <span class="submit-loading">
+
+                        <i class="fa-solid fa-circle-notch fa-spin"></i>
+
+                        Analyzing...
+
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right submit-arrow"></i>
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TECHNOLOGY SECTION
+========================================================= -->
+
+<section class="technology-section">
+
+    <div class="container">
+
+        <div class="tech-card">
+
+            <div class="tech-content">
+
+                <span class="eyebrow">
+                    <i class="fa-solid fa-layer-group"></i>
+                    TECHNOLOGY
+                </span>
+
+                <h2>
+                    Built with a modern
+                    <span class="gradient-text">
+                        data science stack.
+                    </span>
+                </h2>
+
+                <p>
+                    The system combines structured financial data,
+                    machine learning, model evaluation and
+                    explainability into one credit-risk workflow.
+                </p>
+
+            </div>
+
+
+            <div class="tech-stack">
+
+                <div class="tech-pill">
+                    <i class="fa-brands fa-python"></i>
+                    Python
+                </div>
+
+                <div class="tech-pill">
+                    <i class="fa-solid fa-table"></i>
+                    Pandas
+                </div>
+
+                <div class="tech-pill">
+                    <i class="fa-solid fa-brain"></i>
+                    Scikit-learn
+                </div>
+
+                <div class="tech-pill">
+                    <i class="fa-solid fa-tree"></i>
+                    XGBoost
+                </div>
+
+                <div class="tech-pill">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    LightGBM
+                </div>
+
+                <div class="tech-pill">
+                    <i class="fa-solid fa-eye"></i>
+                    SHAP
+                </div>
+
+                <div class="tech-pill">
+                    <i class="fa-solid fa-flask"></i>
+                    Flask
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="final-cta">
+
+    <div class="container">
+
+        <div class="final-cta-card">
+
+            <div class="cta-orb"></div>
+
+            <div class="cta-content">
+
+                <span class="eyebrow">
+                    READY TO ASSESS?
+                </span>
+
+                <h2>
+                    Turn financial data into
+                    <span>
+                        actionable risk intelligence.
+                    </span>
+                </h2>
+
+                <a
+                    href="{{ url_for('assess_risk') }}"
+                    class="primary-btn light-btn"
+                >
+
+                    <span class="btn-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </span>
+
+                    Start Assessment
+
+                    <i class="fa-solid fa-arrow-up"></i>
+
+                </a>
+
+            </div>
+
+
+            <div class="cta-decoration">
+
+                <div class="cta-circle circle-one"></div>
+                <div class="cta-circle circle-two"></div>
+                <div class="cta-circle circle-three"></div>
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+
+        <div class="footer-brand">
+
+            <a href="/" class="brand">
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+                <div class="brand-text">
+
+                    <span class="brand-name">
+                        CreditRisk<span>AI</span>
+                    </span>
+
+                    <small>
+                        RISK INTELLIGENCE
+                    </small>
+
+                </div>
+
+            </a>
+
+            <p>
+                A machine-learning powered credit risk
+                analytics project designed for interpretable
+                borrower risk assessment.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Platform
+            </h4>
+
+            <a href="{{ url_for('assess_risk') }}">
+                Risk Assessment
+            </a>
+
+            <a href="/dashboard">
+                Analytics Dashboard
+            </a>
+
+            <a href="/methodology">
+                Methodology
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Project
+            </h4>
+
+            <a href="/about">
+                About
+            </a>
+
+            <a href="#how-it-works">
+                How It Works
+            </a>
+
+            <a href="/dashboard">
+                Data Insights
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Technology
+            </h4>
+
+            <span>
+                Python
+            </span>
+
+            <span>
+                Scikit-learn
+            </span>
+
+            <span>
+                Flask
+            </span>
+
+            <span>
+                SHAP
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom container">
+
+        <span>
+            © 2026 CreditRiskAI. Data Science Portfolio Project Developed By Mohit Kushwah.
+        </span>
+
+        <span>
+            Built with Python & Machine Learning
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script
+    src="{{ url_for('static', filename='js/app.js') }}"
+></script>
+
+
+</body>
+</html>

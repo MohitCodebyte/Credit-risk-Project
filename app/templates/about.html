@@ -1,0 +1,3510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="About CreditRisk AI - Credit Risk Analytics System"
+    >
+
+    <title>About | CreditRisk AI</title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================================
+         FONT AWESOME
+         ========================================================= -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =========================================================
+         MAIN CSS
+         ========================================================= -->
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+
+    <!-- =========================================================
+         PAGE-SPECIFIC CSS
+         ========================================================= -->
+
+    <style>
+
+        /* =====================================================
+           PAGE
+           ===================================================== */
+
+        .about-page {
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 8% 8%,
+                    rgba(37,99,235,.075),
+                    transparent 29%
+                ),
+                radial-gradient(
+                    circle at 94% 25%,
+                    rgba(14,165,233,.065),
+                    transparent 28%
+                ),
+                #f8fafc;
+
+            color: #0f172a;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+           ===================================================== */
+
+        .about-navbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            height: 76px;
+
+            background:
+                rgba(255,255,255,.84);
+
+            backdrop-filter:
+                blur(22px);
+
+            -webkit-backdrop-filter:
+                blur(22px);
+
+            border-bottom:
+                1px solid
+                rgba(15,23,42,.07);
+
+            box-shadow:
+                0 8px 30px
+                rgba(15,23,42,.035);
+        }
+
+
+        .about-nav-inner {
+
+            max-width: 1240px;
+
+            height: 100%;
+
+            margin: auto;
+
+            padding:
+                0 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        /* =====================================================
+           BRAND
+           ===================================================== */
+
+        .about-brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            text-decoration: none;
+
+            color: #0f172a;
+        }
+
+
+        .about-brand-icon {
+
+            width: 41px;
+
+            height: 41px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 12px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #2563eb
+                );
+
+            box-shadow:
+                0 10px 24px
+                rgba(37,99,235,.20);
+        }
+
+
+        .about-brand-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            line-height: 1;
+        }
+
+
+        .about-brand-title {
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+            letter-spacing: -.5px;
+        }
+
+
+        .about-brand-subtitle {
+
+            margin-top: 5px;
+
+            color: #94a3b8;
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.1px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           NAV LINKS
+           ===================================================== */
+
+        .about-nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+        }
+
+
+        .about-nav-link {
+
+            padding:
+                9px 13px;
+
+            border-radius: 10px;
+
+            color: #64748b;
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            transition:
+                .25s ease;
+        }
+
+
+        .about-nav-link:hover,
+        .about-nav-link.active {
+
+            color: #2563eb;
+
+            background:
+                #eff6ff;
+        }
+
+
+        .about-nav-cta {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-left: 8px;
+
+            padding:
+                11px 16px;
+
+            border-radius: 11px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #2563eb
+                );
+
+            box-shadow:
+                0 10px 24px
+                rgba(37,99,235,.17);
+
+            transition:
+                .25s ease;
+        }
+
+
+        .about-nav-cta:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 16px 32px
+                rgba(37,99,235,.24);
+        }
+
+
+        /* =====================================================
+           MAIN
+           ===================================================== */
+
+        .about-main {
+
+            position: relative;
+
+            max-width: 1240px;
+
+            margin: auto;
+
+            padding:
+                65px 24px 80px;
+        }
+
+
+        /* =====================================================
+           DECORATIVE BACKGROUND
+           ===================================================== */
+
+        .about-orb {
+
+            position: absolute;
+
+            width: 420px;
+
+            height: 420px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.075),
+                    transparent 68%
+                );
+
+            filter:
+                blur(8px);
+
+            pointer-events: none;
+
+            animation:
+                aboutOrbFloat
+                9s ease-in-out infinite;
+        }
+
+
+        .about-orb.one {
+
+            right:
+                -220px;
+
+            top:
+                40px;
+        }
+
+
+        .about-orb.two {
+
+            left:
+                -240px;
+
+            top:
+                730px;
+
+            animation-delay:
+                -3s;
+        }
+
+
+        @keyframes aboutOrbFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-25px);
+            }
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .about-hero {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0,1.05fr)
+                minmax(400px,.95fr);
+
+            gap: 60px;
+
+            align-items: center;
+
+            min-height:
+                520px;
+        }
+
+
+        /* =====================================================
+           HERO CONTENT
+           ===================================================== */
+
+        .about-hero-content {
+
+            max-width:
+                650px;
+        }
+
+
+        .about-eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                8px 12px;
+
+            border-radius:
+                999px;
+
+            background:
+                #eff6ff;
+
+            border:
+                1px solid
+                rgba(37,99,235,.10);
+
+            color:
+                #2563eb;
+
+            font-size:
+                8px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .about-eyebrow i {
+
+            font-size:
+                6px;
+
+            animation:
+                aboutPulse
+                1.8s
+                ease-in-out
+                infinite;
+        }
+
+
+        @keyframes aboutPulse {
+
+            0%,
+            100% {
+                opacity: .45;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+        .about-title {
+
+            margin:
+                19px 0 15px;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                clamp(42px,5vw,66px);
+
+            line-height:
+                .96;
+
+            letter-spacing:
+                -3.2px;
+        }
+
+
+        .about-title span {
+
+            color:
+                #2563eb;
+        }
+
+
+        .about-description {
+
+            max-width:
+                610px;
+
+            margin:
+                0;
+
+            color:
+                #64748b;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.8;
+        }
+
+
+        /* =====================================================
+           HERO ACTIONS
+           ===================================================== */
+
+        .about-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top:
+                27px;
+        }
+
+
+        .about-primary-btn,
+        .about-secondary-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            padding:
+                13px 17px;
+
+            border-radius:
+                12px;
+
+            text-decoration:
+                none;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            transition:
+                .25s ease;
+        }
+
+
+        .about-primary-btn {
+
+            color:
+                white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #2563eb
+                );
+
+            box-shadow:
+                0 12px 27px
+                rgba(37,99,235,.18);
+        }
+
+
+        .about-secondary-btn {
+
+            color:
+                #475569;
+
+            background:
+                white;
+
+            border:
+                1px solid
+                rgba(15,23,42,.08);
+        }
+
+
+        .about-primary-btn:hover,
+        .about-secondary-btn:hover {
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================================
+           HERO STATS
+           ===================================================== */
+
+        .about-mini-stats {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 27px;
+
+            margin-top:
+                35px;
+        }
+
+
+        .about-mini-stat {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 4px;
+        }
+
+
+        .about-mini-stat strong {
+
+            color:
+                #0f172a;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                20px;
+        }
+
+
+        .about-mini-stat span {
+
+            color:
+                #94a3b8;
+
+            font-size:
+                8px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                .8px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .about-stat-divider {
+
+            width:
+                1px;
+
+            height:
+                32px;
+
+            background:
+                #e2e8f0;
+        }
+
+
+        /* =====================================================
+           3D SHIELD SCENE
+           ===================================================== */
+
+        .about-visual {
+
+            position:
+                relative;
+
+            min-height:
+                470px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            perspective:
+                1000px;
+        }
+
+
+        .about-scene {
+
+            position:
+                relative;
+
+            width:
+                390px;
+
+            height:
+                390px;
+
+            transform-style:
+                preserve-3d;
+
+            animation:
+                sceneFloat
+                6s
+                ease-in-out
+                infinite;
+        }
+
+
+        @keyframes sceneFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotateX(0deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px)
+                    rotateX(2deg);
+            }
+        }
+
+
+        /* =====================================================
+           ORBITS
+           ===================================================== */
+
+        .about-orbit {
+
+            position:
+                absolute;
+
+            top:
+                50%;
+
+            left:
+                50%;
+
+            border:
+                1px solid
+                rgba(37,99,235,.15);
+
+            border-radius:
+                50%;
+
+            transform-style:
+                preserve-3d;
+        }
+
+
+        .about-orbit.one {
+
+            width:
+                380px;
+
+            height:
+                145px;
+
+            transform:
+                translate(-50%,-50%)
+                rotateX(67deg);
+
+            animation:
+                aboutOrbit1
+                10s
+                linear
+                infinite;
+        }
+
+
+        .about-orbit.two {
+
+            width:
+                310px;
+
+            height:
+                310px;
+
+            transform:
+                translate(-50%,-50%)
+                rotateY(67deg);
+
+            animation:
+                aboutOrbit2
+                12s
+                linear
+                infinite;
+        }
+
+
+        .about-orbit.three {
+
+            width:
+                275px;
+
+            height:
+                115px;
+
+            transform:
+                translate(-50%,-50%)
+                rotateX(62deg)
+                rotateZ(40deg);
+
+            animation:
+                aboutOrbit3
+                8s
+                linear
+                infinite;
+        }
+
+
+        @keyframes aboutOrbit1 {
+
+            from {
+                transform:
+                    translate(-50%,-50%)
+                    rotateX(67deg)
+                    rotateZ(0);
+            }
+
+            to {
+                transform:
+                    translate(-50%,-50%)
+                    rotateX(67deg)
+                    rotateZ(360deg);
+            }
+        }
+
+
+        @keyframes aboutOrbit2 {
+
+            from {
+                transform:
+                    translate(-50%,-50%)
+                    rotateY(67deg)
+                    rotateZ(0);
+            }
+
+            to {
+                transform:
+                    translate(-50%,-50%)
+                    rotateY(67deg)
+                    rotateZ(-360deg);
+            }
+        }
+
+
+        @keyframes aboutOrbit3 {
+
+            from {
+                transform:
+                    translate(-50%,-50%)
+                    rotateX(62deg)
+                    rotateZ(40deg);
+            }
+
+            to {
+                transform:
+                    translate(-50%,-50%)
+                    rotateX(62deg)
+                    rotateZ(400deg);
+            }
+        }
+
+
+        /* =====================================================
+           3D SHIELD
+           ===================================================== */
+
+        .about-shield {
+
+            position:
+                absolute;
+
+            top:
+                50%;
+
+            left:
+                50%;
+
+            width:
+                190px;
+
+            height:
+                220px;
+
+            transform:
+                translate(-50%,-50%)
+                rotateX(7deg)
+                rotateY(-8deg);
+
+            filter:
+                drop-shadow(
+                    0 35px 35px
+                    rgba(37,99,235,.17)
+                );
+
+            animation:
+                shieldTilt
+                5s
+                ease-in-out
+                infinite;
+        }
+
+
+        @keyframes shieldTilt {
+
+            0%,
+            100% {
+
+                transform:
+                    translate(-50%,-50%)
+                    rotateX(7deg)
+                    rotateY(-8deg);
+            }
+
+            50% {
+
+                transform:
+                    translate(-50%,-53%)
+                    rotateX(-4deg)
+                    rotateY(9deg);
+            }
+        }
+
+
+        .shield-shape {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            clip-path:
+                polygon(
+                    50% 0%,
+                    92% 17%,
+                    87% 59%,
+                    73% 82%,
+                    50% 100%,
+                    27% 82%,
+                    13% 59%,
+                    8% 17%
+                );
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 5%,
+                    #dbeafe 43%,
+                    #93c5fd 100%
+                );
+
+            box-shadow:
+                inset
+                -15px -20px 30px
+                rgba(37,99,235,.15);
+        }
+
+
+        .shield-inner {
+
+            position:
+                absolute;
+
+            inset:
+                18px;
+
+            clip-path:
+                polygon(
+                    50% 0%,
+                    91% 17%,
+                    86% 58%,
+                    71% 81%,
+                    50% 100%,
+                    29% 81%,
+                    14% 58%,
+                    9% 17%
+                );
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #eff6ff,
+                    #bfdbfe
+                );
+
+            display:
+                grid;
+
+            place-items:
+                center;
+        }
+
+
+        .shield-inner::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                75px;
+
+            height:
+                35px;
+
+            top:
+                28px;
+
+            left:
+                29px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(255,255,255,.65);
+
+            filter:
+                blur(7px);
+
+            transform:
+                rotate(-25deg);
+        }
+
+
+        .shield-icon {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            width:
+                76px;
+
+            height:
+                76px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                23px;
+
+            color:
+                white;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0f172a,
+                    #2563eb
+                );
+
+            box-shadow:
+                0 18px 30px
+                rgba(37,99,235,.23);
+        }
+
+
+        .shield-icon i {
+
+            font-size:
+                30px;
+
+            filter:
+                drop-shadow(
+                    0 4px 8px
+                    rgba(0,0,0,.2)
+                );
+        }
+
+
+        /* =====================================================
+           FLOATING DATA NODES
+           ===================================================== */
+
+        .about-data-node {
+
+            position:
+                absolute;
+
+            min-width:
+                105px;
+
+            padding:
+                10px 12px;
+
+            border-radius:
+                13px;
+
+            background:
+                rgba(255,255,255,.87);
+
+            border:
+                1px solid
+                rgba(15,23,42,.07);
+
+            box-shadow:
+                0 16px 35px
+                rgba(15,23,42,.08);
+
+            backdrop-filter:
+                blur(15px);
+
+            animation:
+                dataNodeFloat
+                4s
+                ease-in-out
+                infinite;
+        }
+
+
+        .about-data-node strong {
+
+            display:
+                block;
+
+            color:
+                #0f172a;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                14px;
+        }
+
+
+        .about-data-node span {
+
+            display:
+                block;
+
+            margin-top:
+                3px;
+
+            color:
+                #94a3b8;
+
+            font-size:
+                7px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                .7px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .about-data-node.a {
+
+            top:
+                53px;
+
+            left:
+                12px;
+        }
+
+
+        .about-data-node.b {
+
+            top:
+                105px;
+
+            right:
+                -4px;
+
+            animation-delay:
+                -1s;
+        }
+
+
+        .about-data-node.c {
+
+            bottom:
+                68px;
+
+            left:
+                2px;
+
+            animation-delay:
+                -2s;
+        }
+
+
+        .about-data-node.d {
+
+            right:
+                14px;
+
+            bottom:
+                45px;
+
+            animation-delay:
+                -3s;
+        }
+
+
+        @keyframes dataNodeFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-8px);
+            }
+        }
+
+
+        /* =====================================================
+           SECTION
+           ===================================================== */
+
+        .about-section {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            margin-top:
+                85px;
+        }
+
+
+        .about-section-header {
+
+            max-width:
+                700px;
+
+            margin:
+                0 auto 30px;
+
+            text-align:
+                center;
+        }
+
+
+        .about-section-label {
+
+            color:
+                #2563eb;
+
+            font-size:
+                8px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.2px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .about-section-title {
+
+            margin:
+                9px 0 10px;
+
+            color:
+                #0f172a;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                clamp(27px,3vw,39px);
+
+            line-height:
+                1.05;
+
+            letter-spacing:
+                -1.5px;
+        }
+
+
+        .about-section-description {
+
+            margin:
+                0;
+
+            color:
+                #64748b;
+
+            font-size:
+                11px;
+
+            line-height:
+                1.75;
+        }
+
+
+        /* =====================================================
+           PURPOSE CARDS
+           ===================================================== */
+
+        .purpose-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                15px;
+        }
+
+
+        .purpose-card {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            min-height:
+                205px;
+
+            padding:
+                24px;
+
+            border-radius:
+                21px;
+
+            background:
+                rgba(255,255,255,.9);
+
+            border:
+                1px solid
+                rgba(15,23,42,.06);
+
+            box-shadow:
+                0 15px 45px
+                rgba(15,23,42,.045);
+
+            transition:
+                .3s ease;
+        }
+
+
+        .purpose-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                0 25px 55px
+                rgba(15,23,42,.08);
+        }
+
+
+        .purpose-card::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                130px;
+
+            height:
+                130px;
+
+            right:
+                -50px;
+
+            bottom:
+                -60px;
+
+            border-radius:
+                50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.09),
+                    transparent 70%
+                );
+        }
+
+
+        .purpose-icon {
+
+            width:
+                43px;
+
+            height:
+                43px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                13px;
+
+            background:
+                #eff6ff;
+
+            color:
+                #2563eb;
+
+            margin-bottom:
+                19px;
+        }
+
+
+        .purpose-card h3 {
+
+            margin:
+                0 0 8px;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                16px;
+        }
+
+
+        .purpose-card p {
+
+            margin:
+                0;
+
+            color:
+                #64748b;
+
+            font-size:
+                9px;
+
+            line-height:
+                1.75;
+        }
+
+
+        /* =====================================================
+           ARCHITECTURE
+           ===================================================== */
+
+        .architecture {
+
+            padding:
+                30px;
+
+            border-radius:
+                25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #172554
+                );
+
+            color:
+                white;
+
+            overflow:
+                hidden;
+
+            box-shadow:
+                0 25px 65px
+                rgba(15,23,42,.15);
+        }
+
+
+        .architecture-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(6,1fr);
+
+            gap:
+                10px;
+
+            align-items:
+                center;
+        }
+
+
+        .architecture-step {
+
+            position:
+                relative;
+
+            min-height:
+                105px;
+
+            padding:
+                15px 10px;
+
+            border-radius:
+                15px;
+
+            background:
+                rgba(255,255,255,.055);
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            text-align:
+                center;
+
+            transition:
+                .25s ease;
+        }
+
+
+        .architecture-step:hover {
+
+            transform:
+                translateY(-5px);
+
+            background:
+                rgba(255,255,255,.09);
+        }
+
+
+        .architecture-number {
+
+            width:
+                25px;
+
+            height:
+                25px;
+
+            margin:
+                0 auto 9px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                8px;
+
+            background:
+                rgba(59,130,246,.16);
+
+            color:
+                #93c5fd;
+
+            font-size:
+                8px;
+
+            font-weight:
+                800;
+        }
+
+
+        .architecture-step i {
+
+            color:
+                #60a5fa;
+
+            font-size:
+                17px;
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .architecture-step strong {
+
+            display:
+                block;
+
+            color:
+                white;
+
+            font-size:
+                8px;
+
+            line-height:
+                1.35;
+        }
+
+
+        .architecture-arrow {
+
+            color:
+                #475569;
+
+            font-size:
+                10px;
+
+            text-align:
+                center;
+        }
+
+
+        /* =====================================================
+           TECHNOLOGY STACK
+           ===================================================== */
+
+        .technology-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:
+                12px;
+        }
+
+
+        .technology-card {
+
+            min-height:
+                115px;
+
+            padding:
+                19px;
+
+            border-radius:
+                17px;
+
+            background:
+                white;
+
+            border:
+                1px solid
+                rgba(15,23,42,.06);
+
+            box-shadow:
+                0 12px 35px
+                rgba(15,23,42,.04);
+
+            transition:
+                .25s ease;
+        }
+
+
+        .technology-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(37,99,235,.13);
+        }
+
+
+        .technology-icon {
+
+            width:
+                34px;
+
+            height:
+                34px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                9px;
+
+            background:
+                #f1f5f9;
+
+            color:
+                #2563eb;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .technology-card strong {
+
+            display:
+                block;
+
+            color:
+                #1e293b;
+
+            font-size:
+                10px;
+        }
+
+
+        .technology-card span {
+
+            display:
+                block;
+
+            margin-top:
+                4px;
+
+            color:
+                #94a3b8;
+
+            font-size:
+                8px;
+        }
+
+
+        /* =====================================================
+           DATA SOURCES
+           ===================================================== */
+
+        .source-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap:
+                15px;
+        }
+
+
+        .source-card {
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            gap:
+                15px;
+
+            padding:
+                22px;
+
+            border-radius:
+                20px;
+
+            background:
+                rgba(255,255,255,.9);
+
+            border:
+                1px solid
+                rgba(15,23,42,.06);
+
+            box-shadow:
+                0 14px 40px
+                rgba(15,23,42,.04);
+        }
+
+
+        .source-icon {
+
+            width:
+                43px;
+
+            height:
+                43px;
+
+            flex-shrink:
+                0;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                12px;
+
+            background:
+                #eff6ff;
+
+            color:
+                #2563eb;
+        }
+
+
+        .source-card h3 {
+
+            margin:
+                0 0 6px;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                14px;
+        }
+
+
+        .source-card p {
+
+            margin:
+                0;
+
+            color:
+                #64748b;
+
+            font-size:
+                9px;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* =====================================================
+           CTA
+           ===================================================== */
+
+        .about-final-cta {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            margin-top:
+                80px;
+
+            padding:
+                42px;
+
+            border-radius:
+                27px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eff6ff,
+                    #ffffff
+                );
+
+            border:
+                1px solid
+                rgba(37,99,235,.10);
+
+            text-align:
+                center;
+        }
+
+
+        .about-final-cta::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                250px;
+
+            height:
+                250px;
+
+            left:
+                -110px;
+
+            top:
+                -130px;
+
+            border-radius:
+                50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.11),
+                    transparent 70%
+                );
+        }
+
+
+        .about-final-cta h2 {
+
+            position:
+                relative;
+
+            margin:
+                0 0 10px;
+
+            font-family:
+                "Space Grotesk",
+                sans-serif;
+
+            font-size:
+                27px;
+
+            letter-spacing:
+                -1px;
+        }
+
+
+        .about-final-cta p {
+
+            position:
+                relative;
+
+            max-width:
+                570px;
+
+            margin:
+                0 auto 20px;
+
+            color:
+                #64748b;
+
+            font-size:
+                10px;
+
+            line-height:
+                1.7;
+        }
+
+
+        .about-final-cta a {
+
+            position:
+                relative;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                13px 18px;
+
+            border-radius:
+                11px;
+
+            background:
+                #0f172a;
+
+            color:
+                white;
+
+            text-decoration:
+                none;
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            transition:
+                .25s ease;
+        }
+
+
+        .about-final-cta a:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 14px 28px
+                rgba(15,23,42,.18);
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        .about-footer {
+
+            padding:
+                28px 24px;
+
+            border-top:
+                1px solid
+                rgba(15,23,42,.07);
+
+            text-align:
+                center;
+        }
+
+
+        .about-footer p {
+
+            margin:
+                0;
+
+            color:
+                #94a3b8;
+
+            font-size:
+                9px;
+
+            font-weight:
+                600;
+        }
+
+
+        .about-footer strong {
+
+            color:
+                #475569;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width:1050px) {
+
+            .about-hero {
+
+                grid-template-columns:
+                    1fr;
+
+                text-align:
+                    center;
+            }
+
+
+            .about-hero-content {
+
+                margin:
+                    auto;
+            }
+
+
+            .about-description {
+
+                margin:
+                    auto;
+            }
+
+
+            .about-actions,
+            .about-mini-stats {
+
+                justify-content:
+                    center;
+            }
+
+
+            .about-visual {
+
+                min-height:
+                    420px;
+            }
+
+
+            .architecture-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+            }
+
+
+            .architecture-arrow {
+
+                display:
+                    none;
+            }
+
+
+            .technology-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+        }
+
+
+        @media (max-width:760px) {
+
+            .about-navbar {
+
+                height:
+                    68px;
+            }
+
+
+            .about-nav-inner {
+
+                padding:
+                    0 16px;
+            }
+
+
+            .about-nav-links {
+
+                display:
+                    none;
+            }
+
+
+            .about-main {
+
+                padding:
+                    45px 16px 60px;
+            }
+
+
+            .about-title {
+
+                font-size:
+                    43px;
+
+                letter-spacing:
+                    -2px;
+            }
+
+
+            .about-actions {
+
+                flex-direction:
+                    column;
+            }
+
+
+            .about-primary-btn,
+            .about-secondary-btn {
+
+                width:
+                    100%;
+            }
+
+
+            .about-mini-stats {
+
+                gap:
+                    16px;
+            }
+
+
+            .about-scene {
+
+                transform:
+                    scale(.78);
+            }
+
+
+            .about-visual {
+
+                min-height:
+                    350px;
+            }
+
+
+            .purpose-grid,
+            .source-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .architecture-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .about-final-cta {
+
+                padding:
+                    30px 20px;
+            }
+        }
+
+
+        @media (max-width:450px) {
+
+            .about-brand-subtitle {
+
+                display:
+                    none;
+            }
+
+
+            .about-scene {
+
+                transform:
+                    scale(.64);
+            }
+
+
+            .about-visual {
+
+                min-height:
+                    300px;
+            }
+
+
+            .technology-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .architecture-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+           ===================================================== */
+
+        @media (prefers-reduced-motion:reduce) {
+
+            .about-orb,
+            .about-eyebrow i,
+            .about-scene,
+            .about-orbit,
+            .about-shield,
+            .about-data-node {
+
+                animation:
+                    none !important;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="about-page">
+
+
+    <!-- =========================================================
+         NAVBAR
+         ========================================================= -->
+
+    <nav class="about-navbar">
+
+        <div class="about-nav-inner">
+
+
+            <!-- BRAND -->
+
+            <a
+                href="{{ url_for('home') }}"
+                class="about-brand"
+            >
+
+                <div class="about-brand-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+
+                <div class="about-brand-text">
+
+                    <span class="about-brand-title">
+                        CreditRisk AI
+                    </span>
+
+                    <span class="about-brand-subtitle">
+                        Analytics System
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- LINKS -->
+
+            <div class="about-nav-links">
+
+                <a
+                    href="{{ url_for('home') }}"
+                    class="about-nav-link"
+                >
+                    Home
+                </a>
+
+
+                <a
+                    href="{{ url_for('dashboard') }}"
+                    class="about-nav-link"
+                >
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="{{ url_for('about') }}"
+                    class="about-nav-link active"
+                >
+                    About
+                </a>
+
+
+                <a
+                    href="{{ url_for('methodology') }}"
+                    class="about-nav-link"
+                >
+                    Methodology
+                </a>
+
+
+                <a
+                    href="{{ url_for('home') }}#assessment"
+                    class="about-nav-cta"
+                >
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    Assess Risk
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         MAIN
+         ========================================================= -->
+
+    <main class="about-main">
+
+
+        <!-- BACKGROUND ORBS -->
+
+        <div class="about-orb one"></div>
+
+        <div class="about-orb two"></div>
+
+
+        <!-- =====================================================
+             HERO
+             ===================================================== -->
+
+        <section class="about-hero">
+
+
+            <!-- HERO TEXT -->
+
+            <div class="about-hero-content">
+
+
+                <div class="about-eyebrow">
+
+                    <i class="fa-solid fa-circle"></i>
+
+                    About The Project
+
+                </div>
+
+
+                <h1 class="about-title">
+
+                    Turning Credit Data
+                    Into <span>Risk Intelligence.</span>
+
+                </h1>
+
+
+                <p class="about-description">
+
+                    CreditRisk AI is a machine-learning based credit
+                    risk analytics system designed to analyze borrower
+                    characteristics, financial information, credit
+                    history and bank-level risk context to estimate
+                    default probability.
+
+                </p>
+
+
+                <div class="about-actions">
+
+                    <a
+                        href="{{ url_for('home') }}#assessment"
+                        class="about-primary-btn"
+                    >
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                        Start Risk Assessment
+
+                    </a>
+
+
+                    <a
+                        href="{{ url_for('methodology') }}"
+                        class="about-secondary-btn"
+                    >
+
+                        <i class="fa-solid fa-diagram-project"></i>
+
+                        Explore Methodology
+
+                    </a>
+
+                </div>
+
+
+                <!-- STATS -->
+
+                <div class="about-mini-stats">
+
+
+                    <div class="about-mini-stat">
+
+                        <strong>
+                            10K+
+                        </strong>
+
+                        <span>
+                            Borrower Records
+                        </span>
+
+                    </div>
+
+
+                    <div class="about-stat-divider"></div>
+
+
+                    <div class="about-mini-stat">
+
+                        <strong>
+                            20
+                        </strong>
+
+                        <span>
+                            Banks Covered
+                        </span>
+
+                    </div>
+
+
+                    <div class="about-stat-divider"></div>
+
+
+                    <div class="about-mini-stat">
+
+                        <strong>
+                            ML
+                        </strong>
+
+                        <span>
+                            Prediction Engine
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 3D VISUAL
+                 ================================================= -->
+
+            <div class="about-visual">
+
+                <div class="about-scene">
+
+
+                    <!-- ORBITS -->
+
+                    <div class="about-orbit one"></div>
+
+                    <div class="about-orbit two"></div>
+
+                    <div class="about-orbit three"></div>
+
+
+                    <!-- SHIELD -->
+
+                    <div class="about-shield">
+
+                        <div class="shield-shape">
+
+                            <div class="shield-inner">
+
+                                <div class="shield-icon">
+
+                                    <i class="fa-solid fa-shield-halved"></i>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DATA NODES -->
+
+                    <div class="about-data-node a">
+
+                        <strong>
+                            93%
+                        </strong>
+
+                        <span>
+                            Low Risk
+                        </span>
+
+                    </div>
+
+
+                    <div class="about-data-node b">
+
+                        <strong>
+                            ML
+                        </strong>
+
+                        <span>
+                            Prediction
+                        </span>
+
+                    </div>
+
+
+                    <div class="about-data-node c">
+
+                        <strong>
+                            RBI
+                        </strong>
+
+                        <span>
+                            Benchmark
+                        </span>
+
+                    </div>
+
+
+                    <div class="about-data-node d">
+
+                        <strong>
+                            0–100
+                        </strong>
+
+                        <span>
+                            Risk Score
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROJECT PURPOSE
+             ===================================================== -->
+
+        <section class="about-section">
+
+
+            <div class="about-section-header">
+
+                <span class="about-section-label">
+                    Project Objective
+                </span>
+
+
+                <h2 class="about-section-title">
+
+                    Built Around A Real
+                    Credit-Risk Workflow
+
+                </h2>
+
+
+                <p class="about-section-description">
+
+                    The system brings together data preparation,
+                    exploratory analysis, feature engineering,
+                    machine learning and risk interpretation into
+                    one analytical workflow.
+
+                </p>
+
+            </div>
+
+
+            <div class="purpose-grid">
+
+
+                <!-- CARD 1 -->
+
+                <article class="purpose-card">
+
+                    <div class="purpose-icon">
+
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Analyze
+                    </h3>
+
+
+                    <p>
+
+                        Explore borrower-level financial,
+                        demographic and credit characteristics
+                        to identify patterns associated with
+                        credit risk.
+
+                    </p>
+
+                </article>
+
+
+                <!-- CARD 2 -->
+
+                <article class="purpose-card">
+
+                    <div class="purpose-icon">
+
+                        <i class="fa-solid fa-brain"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Predict
+                    </h3>
+
+
+                    <p>
+
+                        Use a trained machine-learning pipeline
+                        to estimate the probability of a potential
+                        default outcome.
+
+                    </p>
+
+                </article>
+
+
+                <!-- CARD 3 -->
+
+                <article class="purpose-card">
+
+                    <div class="purpose-icon">
+
+                        <i class="fa-solid fa-gauge-high"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Interpret
+                    </h3>
+
+
+                    <p>
+
+                        Convert prediction probability into a
+                        0–100 risk score and analytical risk
+                        categories for easier interpretation.
+
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ARCHITECTURE
+             ===================================================== -->
+
+        <section class="about-section">
+
+
+            <div class="about-section-header">
+
+                <span class="about-section-label">
+                    System Architecture
+                </span>
+
+
+                <h2 class="about-section-title">
+
+                    From Raw Data To
+                    Risk Decision Support
+
+                </h2>
+
+
+                <p class="about-section-description">
+
+                    Each stage of the project contributes to the
+                    final analytical output presented by the Flask
+                    application.
+
+                </p>
+
+            </div>
+
+
+            <div class="architecture">
+
+
+                <div class="architecture-grid">
+
+
+                    <!-- STEP 1 -->
+
+                    <div class="architecture-step">
+
+                        <div class="architecture-number">
+                            01
+                        </div>
+
+                        <i class="fa-solid fa-database"></i>
+
+                        <strong>
+                            Data Sources
+                        </strong>
+
+                    </div>
+
+
+                    <div class="architecture-arrow">
+                        →
+                    </div>
+
+
+                    <!-- STEP 2 -->
+
+                    <div class="architecture-step">
+
+                        <div class="architecture-number">
+                            02
+                        </div>
+
+                        <i class="fa-solid fa-broom"></i>
+
+                        <strong>
+                            Data Cleaning
+                        </strong>
+
+                    </div>
+
+
+                    <div class="architecture-arrow">
+                        →
+                    </div>
+
+
+                    <!-- STEP 3 -->
+
+                    <div class="architecture-step">
+
+                        <div class="architecture-number">
+                            03
+                        </div>
+
+                        <i class="fa-solid fa-gears"></i>
+
+                        <strong>
+                            Feature Engineering
+                        </strong>
+
+                    </div>
+
+
+                    <div class="architecture-arrow">
+                        →
+                    </div>
+
+
+                    <!-- STEP 4 -->
+
+                    <div class="architecture-step">
+
+                        <div class="architecture-number">
+                            04
+                        </div>
+
+                        <i class="fa-solid fa-brain"></i>
+
+                        <strong>
+                            ML Model
+                        </strong>
+
+                    </div>
+
+
+                    <div class="architecture-arrow">
+                        →
+                    </div>
+
+
+                    <!-- STEP 5 -->
+
+                    <div class="architecture-step">
+
+                        <div class="architecture-number">
+                            05
+                        </div>
+
+                        <i class="fa-solid fa-chart-pie"></i>
+
+                        <strong>
+                            Risk Analysis
+                        </strong>
+
+                    </div>
+
+
+                    <div class="architecture-arrow">
+                        →
+                    </div>
+
+
+                    <!-- STEP 6 -->
+
+                    <div class="architecture-step">
+
+                        <div class="architecture-number">
+                            06
+                        </div>
+
+                        <i class="fa-solid fa-window-maximize"></i>
+
+                        <strong>
+                            Flask Application
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TECHNOLOGY STACK
+             ===================================================== -->
+
+        <section class="about-section">
+
+
+            <div class="about-section-header">
+
+                <span class="about-section-label">
+                    Technology Stack
+                </span>
+
+
+                <h2 class="about-section-title">
+
+                    Engineered With
+                    Modern Data Tools
+
+                </h2>
+
+
+                <p class="about-section-description">
+
+                    The project combines Python data-science
+                    libraries with machine learning, explainability
+                    and web application technologies.
+
+                </p>
+
+            </div>
+
+
+            <div class="technology-grid">
+
+
+                <article class="technology-card">
+
+                    <div class="technology-icon">
+
+                        <i class="fa-brands fa-python"></i>
+
+                    </div>
+
+                    <strong>
+                        Python
+                    </strong>
+
+                    <span>
+                        Core programming language
+                    </span>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <div class="technology-icon">
+
+                        <i class="fa-solid fa-table"></i>
+
+                    </div>
+
+                    <strong>
+                        Pandas / NumPy
+                    </strong>
+
+                    <span>
+                        Data processing & analysis
+                    </span>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <div class="technology-icon">
+
+                        <i class="fa-solid fa-brain"></i>
+
+                    </div>
+
+                    <strong>
+                        Scikit-learn
+                    </strong>
+
+                    <span>
+                        Machine learning pipeline
+                    </span>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <div class="technology-icon">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                    </div>
+
+                    <strong>
+                        XGBoost / LightGBM
+                    </strong>
+
+                    <span>
+                        Gradient boosting models
+                    </span>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <div class="technology-icon">
+
+                        <i class="fa-solid fa-scale-balanced"></i>
+
+                    </div>
+
+                    <strong>
+                        Imbalanced-learn
+                    </strong>
+
+                    <span>
+                        Class imbalance handling
+                    </span>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <div class="technology-icon">
+
+                        <i class="fa-solid fa-eye"></i>
+
+                    </div>
+
+                    <strong>
+                        SHAP
+                    </strong>
+
+                    <span>
+                        Model explainability
+                    </span>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <div class="technology-icon">
+
+                        <i class="fa-solid fa-server"></i>
+
+                    </div>
+
+                    <strong>
+                        Flask
+                    </strong>
+
+                    <span>
+                        Prediction web application
+                    </span>
+
+                </article>
+
+
+                <article class="technology-card">
+
+                    <div class="technology-icon">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                    </div>
+
+                    <strong>
+                        Power BI
+                    </strong>
+
+                    <span>
+                        Business analytics dashboard
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DATA SOURCES
+             ===================================================== -->
+
+        <section class="about-section">
+
+
+            <div class="about-section-header">
+
+                <span class="about-section-label">
+                    Data Foundation
+                </span>
+
+
+                <h2 class="about-section-title">
+
+                    Data With Clear
+                    Analytical Context
+
+                </h2>
+
+
+                <p class="about-section-description">
+
+                    The project separates external banking context
+                    from borrower-level modeling data so that the
+                    analytical workflow remains transparent.
+
+                </p>
+
+            </div>
+
+
+            <div class="source-grid">
+
+
+                <!-- RBI -->
+
+                <article class="source-card">
+
+                    <div class="source-icon">
+
+                        <i class="fa-solid fa-building-columns"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            RBI Banking Data
+                        </h3>
+
+
+                        <p>
+
+                            Bank-level Gross NPA, Gross Advances and
+                            Gross NPA ratio information is used as
+                            contextual banking-risk benchmark data.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SYNTHETIC -->
+
+                <article class="source-card">
+
+                    <div class="source-icon">
+
+                        <i class="fa-solid fa-users"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Borrower Dataset
+                        </h3>
+
+
+                        <p>
+
+                            The borrower-level dataset used by the
+                            predictive model is a simulated dataset
+                            created for project development and
+                            analytical demonstration.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FINAL CTA
+             ===================================================== -->
+
+        <section class="about-final-cta">
+
+
+            <h2>
+
+                Explore The Credit
+                Risk Engine
+
+            </h2>
+
+
+            <p>
+
+                Submit a borrower profile and see how the trained
+                machine-learning pipeline transforms financial and
+                credit information into an analytical risk output.
+
+            </p>
+
+
+            <a
+                href="{{ url_for('home') }}#assessment"
+            >
+
+                Launch Risk Assessment
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="about-footer">
+
+        <p>
+
+            © 2026 Credit Risk Analytics System
+            <span>•</span>
+            Developed by
+            <strong>Mohit Kushwah</strong>
+
+        </p>
+
+    </footer>
+
+
+</div>
+
+
+<!-- =============================================================
+     PAGE JAVASCRIPT
+     ============================================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* =====================================================
+           SCROLL REVEAL
+           ===================================================== */
+
+        const elements =
+            document.querySelectorAll(
+                ".purpose-card, " +
+                ".architecture-step, " +
+                ".technology-card, " +
+                ".source-card, " +
+                ".about-final-cta"
+            );
+
+
+        elements.forEach(
+            function (element) {
+
+                element.style.opacity =
+                    "0";
+
+                element.style.transform =
+                    "translateY(20px)";
+
+                element.style.transition =
+                    "opacity .7s ease, " +
+                    "transform .7s cubic-bezier(.16,1,.3,1)";
+
+            }
+        );
+
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+
+                    entries.forEach(
+                        function (entry) {
+
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+
+                                entry.target.style.opacity =
+                                    "1";
+
+
+                                entry.target.style.transform =
+                                    "translateY(0)";
+
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: .12
+                }
+            );
+
+
+        elements.forEach(
+            function (element) {
+
+                observer.observe(
+                    element
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           3D HERO PARALLAX
+           ===================================================== */
+
+        const scene =
+            document.querySelector(
+                ".about-scene"
+            );
+
+
+        if (
+            scene &&
+            window.matchMedia(
+                "(prefers-reduced-motion: no-preference)"
+            ).matches
+        ) {
+
+
+            document.addEventListener(
+                "mousemove",
+                function (event) {
+
+
+                    const x =
+                        (event.clientX /
+                            window.innerWidth) -
+                        .5;
+
+
+                    const y =
+                        (event.clientY /
+                            window.innerHeight) -
+                        .5;
+
+
+                    scene.style.transform =
+                        `
+                        translateY(-5px)
+                        rotateX(${y * -4}deg)
+                        rotateY(${x * 5}deg)
+                        `;
+                }
+            );
+
+
+            document.addEventListener(
+                "mouseleave",
+                function () {
+
+                    scene.style.transform =
+                        "";
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           NAVBAR SHADOW
+           ===================================================== */
+
+        const navbar =
+            document.querySelector(
+                ".about-navbar"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+
+                if (!navbar) {
+                    return;
+                }
+
+
+                if (
+                    window.scrollY > 20
+                ) {
+
+                    navbar.style.boxShadow =
+                        "0 14px 40px rgba(15,23,42,.08)";
+
+                } else {
+
+                    navbar.style.boxShadow =
+                        "0 8px 30px rgba(15,23,42,.035)";
+
+                }
+
+            }
+        );
+
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>

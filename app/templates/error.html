@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Credit Risk Analytics System — Error"
+    >
+
+    <meta
+        name="theme-color"
+        content="#f7f9fc"
+    >
+
+    <title>
+        {{ error_code|default('Error') }} — Credit Risk Analytics System
+    </title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main Stylesheet -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <style>
+
+        /* =========================================================
+           ERROR PAGE — CREDIT RISK ANALYTICS SYSTEM
+           Developed by Mohit Kushwah
+           ========================================================= */
+
+        .error-page {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(37, 99, 235, 0.07),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 75%,
+                    rgba(14, 165, 233, 0.07),
+                    transparent 30%
+                ),
+                #f7f9fc;
+        }
+
+        /* ---------------------------------------------------------
+           Background
+           --------------------------------------------------------- */
+
+        .error-background {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .error-grid {
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(15, 23, 42, 0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(15, 23, 42, 0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 85%
+            );
+        }
+
+        .error-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: errorFloat 8s ease-in-out infinite;
+        }
+
+        .error-orb.one {
+            width: 240px;
+            height: 240px;
+            top: 10%;
+            left: -80px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(37, 99, 235, 0.10),
+                    transparent 70%
+                );
+        }
+
+        .error-orb.two {
+            width: 300px;
+            height: 300px;
+            right: -100px;
+            bottom: 5%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(14, 165, 233, 0.10),
+                    transparent 70%
+                );
+
+            animation-delay: -3s;
+        }
+
+        @keyframes errorFloat {
+            0%,
+            100% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            50% {
+                transform: translate3d(0, -20px, 0);
+            }
+        }
+
+        /* ---------------------------------------------------------
+           Navbar
+           --------------------------------------------------------- */
+
+        .error-navbar {
+            position: relative;
+            z-index: 20;
+
+            width: min(
+                calc(100% - 40px),
+                1240px
+            );
+
+            margin: 22px auto 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 13px 18px;
+
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.78);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 10px 35px rgba(15, 23, 42, 0.06);
+        }
+
+        .error-brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            color: #0f172a;
+            text-decoration: none;
+        }
+
+        .error-brand-icon {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 13px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #0ea5e9
+                );
+
+            box-shadow:
+                0 10px 25px rgba(37, 99, 235, 0.20);
+        }
+
+        .error-brand-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .error-brand-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .error-brand-title {
+            font-family: "Manrope", sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .error-brand-subtitle {
+            color: #64748b;
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .error-home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 10px 15px;
+
+            color: #334155;
+            text-decoration: none;
+
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 11px;
+
+            background: rgba(255, 255, 255, 0.75);
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .error-home-link:hover {
+            transform: translateY(-2px);
+
+            border-color: rgba(37, 99, 235, 0.18);
+
+            box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.07);
+        }
+
+        .error-home-link svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        /* ---------------------------------------------------------
+           Main
+           --------------------------------------------------------- */
+
+        .error-main {
+            position: relative;
+            z-index: 5;
+
+            flex: 1;
+
+            width: min(
+                calc(100% - 40px),
+                1240px
+            );
+
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 70px 0 85px;
+        }
+
+        .error-layout {
+            width: 100%;
+
+            display: grid;
+            grid-template-columns:
+                minmax(0, 0.95fr)
+                minmax(0, 1.05fr);
+
+            align-items: center;
+            gap: 70px;
+        }
+
+        /* ---------------------------------------------------------
+           Error Copy
+           --------------------------------------------------------- */
+
+        .error-copy {
+            max-width: 590px;
+        }
+
+        .error-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 8px 12px;
+
+            margin-bottom: 22px;
+
+            border: 1px solid rgba(37, 99, 235, 0.12);
+            border-radius: 999px;
+
+            background: rgba(37, 99, 235, 0.06);
+
+            color: #2563eb;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .error-status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #2563eb;
+
+            box-shadow:
+                0 0 0 5px rgba(37, 99, 235, 0.08);
+
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes statusPulse {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.55;
+                transform: scale(0.82);
+            }
+        }
+
+        .error-code {
+            margin: 0 0 4px;
+
+            font-family: "Manrope", sans-serif;
+
+            font-size: clamp(
+                72px,
+                11vw,
+                145px
+            );
+
+            line-height: 0.85;
+
+            font-weight: 800;
+
+            letter-spacing: -0.08em;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a 15%,
+                    #2563eb 55%,
+                    #0ea5e9
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .error-title {
+            margin: 25px 0 14px;
+
+            color: #0f172a;
+
+            font-family: "Manrope", sans-serif;
+
+            font-size: clamp(
+                30px,
+                4vw,
+                52px
+            );
+
+            line-height: 1.08;
+
+            font-weight: 800;
+
+            letter-spacing: -0.045em;
+        }
+
+        .error-description {
+            max-width: 530px;
+
+            margin: 0;
+
+            color: #64748b;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 15px;
+
+            line-height: 1.75;
+        }
+
+        .error-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+
+            margin-top: 30px;
+        }
+
+        .error-primary-button,
+        .error-secondary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            min-height: 48px;
+
+            padding: 0 18px;
+
+            border-radius: 12px;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+
+            text-decoration: none;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .error-primary-button {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #0ea5e9
+                );
+
+            box-shadow:
+                0 12px 28px rgba(37, 99, 235, 0.20);
+        }
+
+        .error-primary-button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 17px 35px rgba(37, 99, 235, 0.26);
+        }
+
+        .error-secondary-button {
+            color: #334155;
+
+            border: 1px solid rgba(15, 23, 42, 0.09);
+
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .error-secondary-button:hover {
+            transform: translateY(-3px);
+
+            background: white;
+
+            box-shadow:
+                0 12px 28px rgba(15, 23, 42, 0.07);
+        }
+
+        .error-primary-button svg,
+        .error-secondary-button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ---------------------------------------------------------
+           Diagnostic Details
+           --------------------------------------------------------- */
+
+        .error-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+
+            margin-top: 27px;
+        }
+
+        .error-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            color: #64748b;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .error-meta-item svg {
+            width: 15px;
+            height: 15px;
+
+            color: #2563eb;
+        }
+
+        /* ---------------------------------------------------------
+           3D Error Visual
+           --------------------------------------------------------- */
+
+        .error-visual {
+            position: relative;
+
+            min-height: 520px;
+
+            display: grid;
+            place-items: center;
+
+            perspective: 1200px;
+        }
+
+        .error-scene {
+            position: relative;
+
+            width: min(
+                470px,
+                90vw
+            );
+
+            height: 470px;
+
+            transform-style: preserve-3d;
+
+            animation:
+                sceneFloat 7s ease-in-out infinite;
+        }
+
+        @keyframes sceneFloat {
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotateX(0deg)
+                    rotateY(0deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px)
+                    rotateX(1deg)
+                    rotateY(-2deg);
+            }
+        }
+
+        /* Main glass sphere */
+
+        .error-sphere {
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            top: 50%;
+            left: 50%;
+
+            transform:
+                translate(-50%, -50%)
+                translateZ(50px);
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(
+                    37,
+                    99,
+                    235,
+                    0.15
+                );
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    rgba(255,255,255,0.95),
+                    rgba(255,255,255,0.68) 45%,
+                    rgba(219,234,254,0.45)
+                );
+
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                0 35px 70px rgba(15,23,42,0.10),
+                0 0 90px rgba(37,99,235,0.08);
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            display: grid;
+            place-items: center;
+
+            transform-style: preserve-3d;
+        }
+
+        .error-sphere::before {
+            content: "";
+
+            position: absolute;
+
+            width: 190px;
+            height: 190px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(
+                    37,
+                    99,
+                    235,
+                    0.10
+                );
+        }
+
+        .error-sphere::after {
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,0.08),
+                    transparent 70%
+                );
+        }
+
+        /* Warning icon */
+
+        .error-symbol {
+            position: relative;
+            z-index: 3;
+
+            width: 90px;
+            height: 90px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 28px;
+
+            color: #2563eb;
+
+            background:
+                rgba(255,255,255,0.82);
+
+            border:
+                1px solid rgba(
+                    37,
+                    99,
+                    235,
+                    0.10
+                );
+
+            box-shadow:
+                0 20px 40px rgba(
+                    15,
+                    23,
+                    42,
+                    0.09
+                );
+
+            transform:
+                translateZ(45px);
+
+            animation:
+                symbolPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes symbolPulse {
+            0%,
+            100% {
+                transform:
+                    translateZ(45px)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translateZ(45px)
+                    scale(1.045);
+            }
+        }
+
+        .error-symbol svg {
+            width: 46px;
+            height: 46px;
+        }
+
+        /* Orbit rings */
+
+        .error-ring {
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(
+                    37,
+                    99,
+                    235,
+                    0.13
+                );
+
+            transform-style: preserve-3d;
+
+            pointer-events: none;
+        }
+
+        .error-ring.one {
+            width: 355px;
+            height: 150px;
+
+            transform:
+                translate(-50%, -50%)
+                rotateX(66deg)
+                rotateZ(-15deg);
+
+            animation:
+                orbitOne 9s linear infinite;
+        }
+
+        .error-ring.two {
+            width: 150px;
+            height: 355px;
+
+            transform:
+                translate(-50%, -50%)
+                rotateY(66deg)
+                rotateZ(18deg);
+
+            animation:
+                orbitTwo 11s linear infinite reverse;
+        }
+
+        .error-ring.three {
+            width: 410px;
+            height: 410px;
+
+            border-color:
+                rgba(14, 165, 233, 0.07);
+
+            transform:
+                translate(-50%, -50%)
+                rotateX(70deg);
+
+            animation:
+                orbitThree 15s linear infinite;
+        }
+
+        @keyframes orbitOne {
+            from {
+                transform:
+                    translate(-50%, -50%)
+                    rotateX(66deg)
+                    rotateZ(0deg);
+            }
+
+            to {
+                transform:
+                    translate(-50%, -50%)
+                    rotateX(66deg)
+                    rotateZ(360deg);
+            }
+        }
+
+        @keyframes orbitTwo {
+            from {
+                transform:
+                    translate(-50%, -50%)
+                    rotateY(66deg)
+                    rotateZ(0deg);
+            }
+
+            to {
+                transform:
+                    translate(-50%, -50%)
+                    rotateY(66deg)
+                    rotateZ(360deg);
+            }
+        }
+
+        @keyframes orbitThree {
+            from {
+                transform:
+                    translate(-50%, -50%)
+                    rotateX(70deg)
+                    rotateZ(0deg);
+            }
+
+            to {
+                transform:
+                    translate(-50%, -50%)
+                    rotateX(70deg)
+                    rotateZ(360deg);
+            }
+        }
+
+        /* Orbit nodes */
+
+        .error-node {
+            position: absolute;
+
+            width: 12px;
+            height: 12px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #0ea5e9
+                );
+
+            box-shadow:
+                0 0 0 6px rgba(
+                    37,
+                    99,
+                    235,
+                    0.08
+                ),
+                0 0 22px rgba(
+                    37,
+                    99,
+                    235,
+                    0.25
+                );
+
+            z-index: 6;
+        }
+
+        .error-node.one {
+            top: 22%;
+            left: 22%;
+        }
+
+        .error-node.two {
+            top: 20%;
+            right: 19%;
+        }
+
+        .error-node.three {
+            bottom: 22%;
+            left: 19%;
+        }
+
+        .error-node.four {
+            right: 17%;
+            bottom: 24%;
+        }
+
+        /* Floating diagnostic cards */
+
+        .error-float-card {
+            position: absolute;
+
+            z-index: 10;
+
+            padding: 13px 15px;
+
+            min-width: 145px;
+
+            border:
+                1px solid rgba(
+                    15,
+                    23,
+                    42,
+                    0.08
+                );
+
+            border-radius: 15px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.84
+                );
+
+            box-shadow:
+                0 18px 45px rgba(
+                    15,
+                    23,
+                    42,
+                    0.09
+                );
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            animation:
+                cardFloat 5s ease-in-out infinite;
+        }
+
+        .error-float-card.card-one {
+            top: 16%;
+            right: 1%;
+        }
+
+        .error-float-card.card-two {
+            bottom: 14%;
+            left: 2%;
+
+            animation-delay: -2.2s;
+        }
+
+        @keyframes cardFloat {
+            0%,
+            100% {
+                transform:
+                    translate3d(0, 0, 40px);
+            }
+
+            50% {
+                transform:
+                    translate3d(0, -9px, 40px);
+            }
+        }
+
+        .error-card-label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-bottom: 6px;
+
+            color: #94a3b8;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 9px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .error-card-label svg {
+            width: 13px;
+            height: 13px;
+
+            color: #2563eb;
+        }
+
+        .error-card-value {
+            color: #0f172a;
+
+            font-family: "Manrope", sans-serif;
+
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        /* ---------------------------------------------------------
+           Footer
+           --------------------------------------------------------- */
+
+        .error-footer {
+            position: relative;
+            z-index: 10;
+
+            width: min(
+                calc(100% - 40px),
+                1240px
+            );
+
+            margin: 0 auto;
+
+            padding: 20px 0 25px;
+
+            border-top:
+                1px solid rgba(
+                    15,
+                    23,
+                    42,
+                    0.07
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .error-footer-text {
+            margin: 0;
+
+            color: #94a3b8;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .error-footer-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            color: #64748b;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .error-footer-status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #22c55e;
+
+            box-shadow:
+                0 0 0 4px rgba(
+                    34,
+                    197,
+                    94,
+                    0.08
+                );
+        }
+
+        /* ---------------------------------------------------------
+           Responsive
+           --------------------------------------------------------- */
+
+        @media (max-width: 900px) {
+
+            .error-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .error-copy {
+                max-width: 700px;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .error-status {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .error-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .error-actions {
+                justify-content: center;
+            }
+
+            .error-meta {
+                justify-content: center;
+            }
+
+            .error-visual {
+                min-height: 450px;
+            }
+
+            .error-scene {
+                transform: scale(0.88);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .error-navbar {
+                width: min(
+                    calc(100% - 24px),
+                    1240px
+                );
+
+                margin-top: 12px;
+
+                padding: 10px 12px;
+
+                border-radius: 15px;
+            }
+
+            .error-brand-subtitle {
+                display: none;
+            }
+
+            .error-brand-icon {
+                width: 38px;
+                height: 38px;
+            }
+
+            .error-home-link {
+                padding: 9px 11px;
+            }
+
+            .error-home-link span {
+                display: none;
+            }
+
+            .error-main {
+                width: min(
+                    calc(100% - 24px),
+                    1240px
+                );
+
+                padding:
+                    45px 0
+                    40px;
+            }
+
+            .error-code {
+                font-size: 88px;
+            }
+
+            .error-title {
+                font-size: 32px;
+            }
+
+            .error-description {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .error-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .error-primary-button,
+            .error-secondary-button {
+                width: 100%;
+            }
+
+            .error-visual {
+                min-height: 380px;
+            }
+
+            .error-scene {
+                transform: scale(0.68);
+            }
+
+            .error-float-card.card-one {
+                right: -4%;
+            }
+
+            .error-float-card.card-two {
+                left: -4%;
+            }
+
+            .error-footer {
+                width: min(
+                    calc(100% - 24px),
+                    1240px
+                );
+
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .error-orb,
+            .error-scene,
+            .error-symbol,
+            .error-ring,
+            .error-float-card,
+            .error-status-dot {
+                animation: none !important;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="error-page">
+
+    <!-- =========================================================
+         BACKGROUND
+         ========================================================= -->
+
+    <div class="error-background" aria-hidden="true">
+
+        <div class="error-grid"></div>
+
+        <div class="error-orb one"></div>
+        <div class="error-orb two"></div>
+
+    </div>
+
+
+    <!-- =========================================================
+         NAVBAR
+         ========================================================= -->
+
+    <header class="error-navbar">
+
+        <a
+            href="{{ url_for('home') }}"
+            class="error-brand"
+            aria-label="Credit Risk Analytics System Home"
+        >
+
+            <span class="error-brand-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path
+                        d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"
+                    />
+                    <path d="M12 8v4" />
+                    <circle
+                        cx="12"
+                        cy="15.5"
+                        r=".6"
+                        fill="currentColor"
+                        stroke="none"
+                    />
+                </svg>
+
+            </span>
+
+            <span class="error-brand-text">
+
+                <span class="error-brand-title">
+                    Credit Risk Analytics
+                </span>
+
+                <span class="error-brand-subtitle">
+                    Intelligent Credit Assessment
+                </span>
+
+            </span>
+
+        </a>
+
+
+        <a
+            href="{{ url_for('home') }}"
+            class="error-home-link"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M3 11.5L12 4l9 7.5" />
+                <path d="M5.5 10v9h13v-9" />
+                <path d="M9.5 19v-5h5v5" />
+            </svg>
+
+            <span>
+                Back to Home
+            </span>
+
+        </a>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN ERROR CONTENT
+         ========================================================= -->
+
+    <main class="error-main">
+
+        <div class="error-layout">
+
+
+            <!-- =================================================
+                 LEFT — ERROR INFORMATION
+                 ================================================= -->
+
+            <section class="error-copy">
+
+                <div class="error-status">
+
+                    <span class="error-status-dot"></span>
+
+                    System Response
+
+                </div>
+
+
+                <div class="error-code">
+                    {{ error_code|default('500') }}
+                </div>
+
+
+                <h1 class="error-title">
+
+                    {{ error_title|default('Something went wrong.') }}
+
+                </h1>
+
+
+                <p class="error-description">
+
+                    {{ error_message|default(
+                        'The request could not be completed right now. '
+                        'Please return to the assessment dashboard and try again.'
+                    ) }}
+
+                </p>
+
+
+                <!-- ACTIONS -->
+
+                <div class="error-actions">
+
+                    <a
+                        href="{{ url_for('home') }}"
+                        class="error-primary-button"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M3 11.5L12 4l9 7.5" />
+                            <path d="M5.5 10v9h13v-9" />
+                            <path d="M9.5 19v-5h5v5" />
+                        </svg>
+
+                        Return to Assessment
+
+                    </a>
+
+
+                    <button
+                        type="button"
+                        class="error-secondary-button"
+                        onclick="window.history.back()"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M19 12H5" />
+                            <path d="M12 19l-7-7 7-7" />
+                        </svg>
+
+                        Go Back
+
+                    </button>
+
+                </div>
+
+
+                <!-- SYSTEM DETAILS -->
+
+                <div class="error-meta">
+
+                    <div class="error-meta-item">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="9"
+                            />
+                            <path d="M12 8v4" />
+                            <path d="M12 16h.01" />
+                        </svg>
+
+                        Request could not be completed
+
+                    </div>
+
+
+                    <div class="error-meta-item">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M4 12h16" />
+                            <path d="M12 4v16" />
+                        </svg>
+
+                        Credit Risk Analytics System
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RIGHT — 3D VISUAL
+                 ================================================= -->
+
+            <section
+                class="error-visual"
+                aria-hidden="true"
+            >
+
+                <div class="error-scene">
+
+
+                    <!-- ORBIT RINGS -->
+
+                    <div class="error-ring one"></div>
+                    <div class="error-ring two"></div>
+                    <div class="error-ring three"></div>
+
+
+                    <!-- ORBIT NODES -->
+
+                    <span class="error-node one"></span>
+                    <span class="error-node two"></span>
+                    <span class="error-node three"></span>
+                    <span class="error-node four"></span>
+
+
+                    <!-- MAIN GLASS SPHERE -->
+
+                    <div class="error-sphere">
+
+                        <div class="error-symbol">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path
+                                    d="M10.3 3.7L2.8 17a2 2 0 001.75 3h14.9a2 2 0 001.75-3L13.7 3.7a2 2 0 00-3.4 0z"
+                                />
+
+                                <path d="M12 9v4" />
+
+                                <path
+                                    d="M12 16.5h.01"
+                                />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FLOATING CARD 01 -->
+
+                    <div class="error-float-card card-one">
+
+                        <div class="error-card-label">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M12 3v18" />
+                                <path d="M3 12h18" />
+                            </svg>
+
+                            Status
+
+                        </div>
+
+                        <div class="error-card-value">
+                            Request Interrupted
+                        </div>
+
+                    </div>
+
+
+                    <!-- FLOATING CARD 02 -->
+
+                    <div class="error-float-card card-two">
+
+                        <div class="error-card-label">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path
+                                    d="M12 2a10 10 0 100 20 10 10 0 000-20z"
+                                />
+
+                                <path d="M12 8v4" />
+
+                                <path d="M12 16h.01" />
+
+                            </svg>
+
+                            System
+
+                        </div>
+
+                        <div class="error-card-value">
+                            Please Try Again
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="error-footer">
+
+        <p class="error-footer-text">
+            © 2026 Credit Risk Analytics System • Developed by Mohit Kushwah
+        </p>
+
+
+        <div class="error-footer-status">
+
+            <span class="error-footer-status-dot"></span>
+
+            Analytics Engine Available
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+<!-- =============================================================
+     OPTIONAL GLOBAL JAVASCRIPT
+     ============================================================= -->
+
+<script
+    src="{{ url_for('static', filename='js/app.js') }}"
+></script>
+
+</body>
+</html>
